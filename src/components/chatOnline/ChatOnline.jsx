@@ -25,7 +25,7 @@ export default function ChatOnline({onlineUsers, currentId, setCurrentChat}) {
                 <div className="chatOnlineFriend">
                     <div className="chatOnlineImgContainer">
                         <img className="chatOnlineImg"
-                            src={online?.profilePicture ? PF+online.profilePicture : PF+"person/noAvatar.png" } alt="description of image"/>
+                            src={online?.profilePicture ? PF+online.profilePicture : PF+"person/noAvatar.png" } alt="description of"/>
                         <div className="chatOnlineBadge"></div>
                     </div>
 
