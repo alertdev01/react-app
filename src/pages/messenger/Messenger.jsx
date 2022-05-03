@@ -20,7 +20,6 @@ export default function Messanger() {
     const scrollRef = useRef()
 
     useEffect(() => {
-        const api = process.env.REACT_APP_SOCKET;
         socket.current = io("https://alert-chat-api.herokuapp.com/");
         socket.current.on("getMessage", data => {
             setArrivalMessage({
