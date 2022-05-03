@@ -21,7 +21,7 @@ export default function Messanger() {
 
     useEffect(() => {
         const api = process.env.REACT_APP_SOCKET;
-        socket.current = io(api);
+        socket.current = io("https://alert-chat-api.herokuapp.com/");
         socket.current.on("getMessage", data => {
             setArrivalMessage({
                 sender: data.senderId,
