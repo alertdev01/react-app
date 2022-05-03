@@ -20,7 +20,8 @@ export default function Messanger() {
     const scrollRef = useRef()
 
     useEffect(() => {
-        socket.current = io("https://alert21-api.herokuapp.com");
+        const api = process.env.REACT_APP_API;
+        socket.current = io(api);
         socket.current.on("getMessage", data => {
             setArrivalMessage({
                 sender: data.senderId,
@@ -43,9 +44,10 @@ export default function Messanger() {
     }, [user])
     
     useEffect(() => {
+        const api = process.env.REACT_APP_API;
         const getConversations = async () => {
             try {
-                const res = await axios.get("/conversations/" + user._id)
+                const res = await axios.get(`${api}/conversations/` + user._id)
                 setConversations(res.data)
             }
             catch (err) {
@@ -56,9 +58,10 @@ export default function Messanger() {
     }, [user._id])
 
     useEffect(() => {
+        const api = process.env.REACT_APP_API;
         const getMessages = async () => {
             try {
-                const res = await axios.get("/messages/" + currentChat?._id)
+                const res = await axios.get(`${api}/messages/` + currentChat?._id)
                 setMessages(res.data)
             }
             catch (err) {
@@ -88,7 +91,8 @@ export default function Messanger() {
         })
 
         try {
-            const res = await axios.post("/messages", message)
+            const api = process.env.REACT_APP_API;
+            const res = await axios.post(`${api}/messages`, message)
             setMessages([...messages, res.data]) // Update the client side with the new message
             setNewMessage("") // Empty the text area
         }

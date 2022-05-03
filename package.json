@@ -18,9 +18,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "heroku-postbuild": "npm install",
+    "heroku-postbuild": "npm run build",
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,6 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:8800/api"
+  }
 }
